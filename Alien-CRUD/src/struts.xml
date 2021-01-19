@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="aliensCrud" extends="struts-default">
+
+		<action name="showForm" class="com.capgemini.actions.ShowFormAction" method="execute">
+			<result name="success">/edit-alien.jsp</result>
+			<result name="error" type="redirect">/add-alien.jsp</result>
+		</action> 
+		<action name="addAlien"
+			class="com.capgemini.actions.AlienAction" method="addAlien">
+			<result name="success">/index.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+
+		</action>
+		<action name="getAliens"
+			class="com.capgemini.actions.GetAliensAction" method="execute">
+			<result name="success">/all-aliens.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="editAlien"
+			class="com.capgemini.actions.AlienAction" method="editAlien">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="input">/edit-alien.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="deleteAlien"
+			class="com.capgemini.actions.AlienAction" method="deleteAlien">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+</struts>
